@@ -1,15 +1,26 @@
-# applemusic
-
-A new flutter plugin project.
+# Apple Music
+by Greg Gushard
+A bridge for Flutter apps and Apple Music authentication.
 
 ## Getting Started
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+Add applemusic: to your `pubspec.yaml file`
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+flutter pub get
 
+
+**Note**  This build targets AndroidX.  If you are targetting Android 11 (API 30+) you will need to update your `AndroidManifest.xml` file.
+
+
+```
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+  package="com.example.applemusic">
+	<queries>
+	        <package android:name="com.apple.android.music" />
+	</queries>
+</manifest>
+
+```
+
+Bump the app level `build.gradle` to 30, or whichever SDK you desire.

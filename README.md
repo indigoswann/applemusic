@@ -1,5 +1,7 @@
 # Apple Music
 by Greg Gushard
+
+
 A bridge for Flutter apps and Apple Music authentication.
 
 ## Getting Started

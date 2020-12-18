@@ -59,14 +59,16 @@ public class ApplemusicPlugin implements FlutterPlugin, MethodCallHandler, Activ
   }
 
   public boolean onActivityResult(int requestCode, int resultCode, Intent data) {
-    TokenResult tokenResult = appleAuthenticationManager.handleTokenResult(data);
+    if(resultCode == 3456) {
+      TokenResult tokenResult = appleAuthenticationManager.handleTokenResult(data);
 
-    if (!tokenResult.isError()) {
-      String appleMusicUserToken = tokenResult.getMusicUserToken();
-      Log.d("Apple Music", "User Token: " + appleMusicUserToken);
-      this.result.success(appleMusicUserToken);
-    } else {
-      Log.e("Apple Music", "Error getting token: " + tokenResult.getError());
+      if (!tokenResult.isError()) {
+        String appleMusicUserToken = tokenResult.getMusicUserToken();
+        Log.d("Apple Music", "User Token: " + appleMusicUserToken);
+        this.result.success(appleMusicUserToken);
+      } else {
+        Log.e("Apple Music", "Error getting token: " + tokenResult.getError());
+      }
     }
     return true;
   }
